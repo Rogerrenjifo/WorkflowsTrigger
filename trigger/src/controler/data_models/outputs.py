@@ -6,23 +6,23 @@
 # Copyright (c) 2023, Roger Renjifo Tarquino                                   #
 #                                                                              #
 #                                                                              #
-# File: configuration.py                                                       #
-# Project: OrgGuardian                                                         #
-# Last Modified: Tuesday, 24th October 2023 7:42:14 pm                         #
+# File: outputs.py                                                             #
+# Project: WorkFlowTrigger                                                     #
+# Last Modified: Sunday, 10th December 2023 10:50:23 pm                        #
 # Modified By: Roger Renjifo (rrrenjifo@gmail.com>)                            #
 #                                                                              #
 # ############################################################################ #
 """
 
 
-from os import getenv
-from dotenv import load_dotenv
-from flask_restx import Api
+from flask_restx import fields
+from trigger.src.configuration import api
 
 
-load_dotenv()
+information_model = api.model(
+    "Roger", {"name": fields.String, "linkedin": fields.String, "email": fields.String}
+)
 
-PORT = int(getenv("PORT_ML", "5000"))
-HOST = str(getenv("HOST_ML", "0.0.0.0"))
-
-api = Api()
+curriculum_model = api.model(
+    "curriculum", {'url': fields.String}
+)

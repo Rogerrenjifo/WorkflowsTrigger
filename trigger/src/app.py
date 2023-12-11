@@ -7,8 +7,8 @@
 #                                                                              #
 #                                                                              #
 # File: app.py                                                                 #
-# Project: OrgGuardian                                                         #
-# Last Modified: Tuesday, 24th October 2023 8:03:17 pm                         #
+# Project: WorkFlowTrigger                                                     #
+# Last Modified: Sunday, 10th December 2023 10:51:48 pm                        #
 # Modified By: Roger Renjifo (rrrenjifo@gmail.com>)                            #
 #                                                                              #
 # ############################################################################ #
@@ -16,17 +16,23 @@
 
 
 from flask import Flask
-from guru.src.configuration import api, PORT, HOST
+from trigger.src.configuration import api, db, ODBC, PORT, HOST
+from trigger.src.controler.endpoints.send_trigger import send_trigger
+from trigger.src.controler.endpoints.configure_trigger import configure_trigger
+from trigger.src.controler.endpoints.delete_information import delete_information
 
-# from guardian.src.controller.endpoints.facial_attributes import ns as facial_attributes
-# from guardian.src.controller.endpoints.information import ns as information
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
-api.init_app(app)
+app.config["SQLALCHEMY_DATABASE_URI"] = ODBC
+app.config.SWAGGER_UI_DOC_EXPANSION = "list"
 
-# api.add_namespace(information)
-# api.add_namespace(facial_attributes)
+api.init_app(app)
+db.init_app(app)
+
+api.add_namespace(send_trigger)
+api.add_namespace(configure_trigger)
+api.add_namespace(delete_information)
+
 
 if __name__ == "__main__":
-    app.run(host=HOST, port=PORT)
+    app.run(port=PORT, host=HOST)

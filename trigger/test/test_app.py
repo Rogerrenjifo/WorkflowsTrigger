@@ -7,16 +7,17 @@
 #                                                                              #
 #                                                                              #
 # File: test_app.py                                                            #
-# Project: OrgGuardian                                                         #
-# Last Modified: Tuesday, 24th October 2023 8:26:19 pm                         #
+# Project: WorkFlowTrigger                                                     #
+# Last Modified: Monday, 11th December 2023 12:21:23 am                        #
 # Modified By: Roger Renjifo (rrrenjifo@gmail.com>)                            #
 #                                                                              #
 # ############################################################################ #
 """
 
 
+
 import unittest
-from guru.src.app import app
+from trigger.src.app import app
 
 
 class TestFlaskApp(unittest.TestCase):
@@ -39,7 +40,3 @@ class TestFlaskApp(unittest.TestCase):
         """
         response = self.app.get("/")
         self.assertEqual(response.status_code, 200)
-
-
-if __name__ == "__main__":
-    unittest.main()

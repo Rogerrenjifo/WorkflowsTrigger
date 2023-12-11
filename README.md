@@ -13,12 +13,16 @@ Configurability: Easily configure and customize workflows to suit your needs.
 ## Setup
 1 Clone the Repository:
 
-```git clone https://github.com/your-username/your-repo.git
-cd your-repo```
+```
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+```
 
 2 Install Dependencies:
 
-```pip install -r requirements.txt```
+```
+pip install -r requirements.txt
+```
 
 3 Configure Slack and GitHub Tokens:
 
@@ -29,18 +33,21 @@ Generate a GitHub Personal Access Token with the necessary permissions.
 
 add a .env file with the following information
 
-```FLASK_DEBUG=
+```
+FLASK_DEBUG=
 DB_USERNAME=
 DB_PASSWORD=
 DB_SERVER=
 DB_DATABASE=
 DB_DRIVER=
 GITHUB_TOKEN=
-SLACK_TOKEN=```
+SLACK_TOKEN=
+```
 
-5 Run the Middleware:
 
-```python app.py```
+```
+python app.py
+```
 
 ## Usage
 
