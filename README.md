@@ -1,19 +1,57 @@
-# JobApplyGuru
-JobApplyGuru is an innovative API designed to simplify the job application process and empower job seekers in their quest for career success. This repository contains the source code, documentation, and resources for JobApplyGuru, an intelligent tool that assists users in creating compelling CVs and tailored cover letters.
+# Workflow Trigger Middleware for Slack and GitHub Actions
 
-## licence headers               configured in .vscode/settings.json
-## Docstring                     
-## linters                       configuredd (settings.json, test_requirements.txt, .pylintrc)
-## unit tests                    
-## asertions
-## loggers
-## swagger documentation
-## autentication
-## databases
-## api Testing
-## database Testing
-## Gui Testing
+## Overview
 
-# ci commands
-pylint guru/
-python -m unittest discover -s guru/test -v
+This middleware API is designed to serve as a bridge between Slack and GitHub Actions, allowing you to trigger workflows with ease. By sending requests from Slack to your middleware, you can initiate GitHub Actions workflows, automating various tasks in your development process.
+
+## Features
+
+Slack Integration: Receive requests from Slack to trigger workflows.
+GitHub Actions: Communicate with GitHub Actions API to start workflows.
+Configurability: Easily configure and customize workflows to suit your needs.
+
+## Setup
+1 Clone the Repository:
+
+```git clone https://github.com/your-username/your-repo.git
+cd your-repo```
+
+2 Install Dependencies:
+
+```pip install -r requirements.txt```
+
+3 Configure Slack and GitHub Tokens:
+
+Obtain a Slack App token for your workspace.
+Generate a GitHub Personal Access Token with the necessary permissions.
+
+4 Update Configuration:
+
+add a .env file with the following information
+
+```FLASK_DEBUG=
+DB_USERNAME=
+DB_PASSWORD=
+DB_SERVER=
+DB_DATABASE=
+DB_DRIVER=
+GITHUB_TOKEN=
+SLACK_TOKEN=```
+
+5 Run the Middleware:
+
+```python app.py```
+
+## Usage
+
+1 Send a Request from Slack:
+
+Use a Slack command or interactive message to send a request to your middleware.
+
+2 Middleware Processes Request:
+
+The middleware receives the request, validates it, and triggers the corresponding workflow in GitHub Actions.
+
+3 GitHub Actions Executes Workflow:
+
+GitHub Actions executes the specified workflow based on the request parameters.
